@@ -150,10 +150,34 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        'excludeBindTypes' : new Array()
 </code>
 <p> 
-	<a href="#excludeBindTypes">excludeBindTypes</a> can be used to specify any elements that you would not like to make ajax calls by being bound to an event (i.e. blur, change).
+	<a href="#excludeBindTypes">excludeBindTypes</a> can be used to specify any elements that you would not like to make ajax calls by being bound to an event (i.e. blur, change). To specify which elements should not be bound to any <a href="#bindType">bindType</a>, you simply pass in their jQuery selectors in an array. This can be useful if you have an element for which you would like to <a href="#manualAjaxCall">manually trigger the ajax call</a>. For instance, to exclude all inputs of type text from being bound to a <a href="#bindType">bindType</a>, you simply do the following:
 </p>
 
 
+<p>
+	<code>
+		'excludeBindTypes' : [
+			<span class="tab"></span>'input[type="text"]'
+		], <br />
+	</code>
+</p>
+
+
+<p>
+	Or if you would like to <a href="#manualAjaxCall">manually trigger all ajax calls</a>, you could do so like this:
+</p>
+
+<p>
+	<code>
+		'excludeBindTypes' : [
+			<span class="tab"></span>'*'
+		], <br />
+	</code>
+</p>
+
+<p>
+	Where '*' would match all elements. However, this is not recommended.
+</p>
 
 <a id="manualAjaxCall"><h3>Manual Ajax Call</h3></a>
 
