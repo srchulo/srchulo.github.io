@@ -20,6 +20,8 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<li><a href="#searchCont">searchCont</a></li>
 		<li><a href="#ajaxURL">ajaxURL</a></li>
 		<li><a href="#URLParams">URLParams</a></li>
+		<li><a href="#ajaxMethod">ajaxMethod</a></li>
+		<li><a href="#bindType">bindType</a></li>
 	</ul>
 	<li><a href="#unclear">Unclear</a></li>
 </ul>
@@ -55,13 +57,13 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a id="defaults"><h3>Defaults</h3></a>
 
 <p>
-	Below are all of the options that can be set with jQuery Facets and all of their default values. All defaults can be changed:
+	Below are all of the options that can be set with jQuery Facets and all of their default values. All defaults can be changed like so:
 </p>
 
 <p>
 <code>
 	$("form#facets").facets({ <br />
-		<span class="tab"></span>'name':'value', <br />
+		<span class="tab"></span>'name1':'value1', <br />
 		<span class="tab"></span>'name2':'value2'<br />
 	});<br />
 </code>
@@ -94,6 +96,25 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	Extra params for the ajax url, such as the original search query. Takes array in jQuery's <a href="http://api.jquery.com/serializeArray/">serializeArray()</a> format.
 </p>
 
+
+
+
+<a id="ajaxMethod"><h4>ajaxMethod</h4></a>
+<code>
+       'ajaxMethod' : 'GET'
+</code>
+<p> 
+	The method of the ajax request. Default is GET.
+</p>
+
+
+<a id="bindType"><h4>bindType</h4></a>
+<code>
+       'bindType' : 'change'
+</code>
+<p> 
+	This is the way to bind to facet elements (i.e. checkboxes). The default is <a href="http://w3schools.com/jsref/event_onchange.asp">onchange</a>. So whenever a element changes (or whichever bind type you select), this is when the ajax request will be made to filter the search results. To select a bindType for individual elements see <a href="#bindTypes">bindTypes</a>.
+</p>
 
 
 
