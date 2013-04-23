@@ -26,8 +26,10 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<li><a href="#excludeBindTypes">exlcudeBindTypes</a></li>
 		<li><a href="#preAJAX">preAJAX</a></li>
 		<li><a href="#postAJAX">postAJAX</a></li>
+		<li><a href="#preHash">preHash</a></li>
+		<li><a href="#postHash">postHash</a></li>
 	</ul>
-	<li><a href="#method">Methods</a></li>
+	<li><a href="#methods">Methods</a></li>
 	<li><a href="#manualAjaxCall">Manual Ajax Call</a></li>
 	<li><a href="#unclear">Unclear</a></li>
 </ul>
@@ -219,15 +221,29 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        'preHash' : function () { }
 </code>
 <p> 
-	<a href="#preHash">preHash</a> takes in a function reference and will be called before making the <a href="#hashURL">hashURL</a> method is called. This is mainly useful for modifying the 
+	<a href="#preHash">preHash</a> takes in a function reference and will be called before the <a href="#hashURL">hashURL</a> method is called. This is mainly useful for modifying the <a href="#hashOptions">hashOptions</a> before <a href="#hashURL">hashURL</a> method is called.
 </p>
+
+
+
+
+<a id="postHash"><h4>postHash</h4></a>
+<code>
+       'postHash' : function () { }
+</code>
+<p> 
+	<a href="#postHash">postHash</a> takes in a function reference and will be called after the <a href="#hashURL">hashURL</a> method is called. To be honest I'm not really sure what I would use this for, but maybe someone else can figure out something for it :)
+</p>
+
+
+
 
 
 
 
 <a id="methods"><h3>Methods</h3></a>
 <p>
-	LOL METHOD STUFF.
+	LOL METHOD STUFF. hashURL, change?
 </p>
 
 
