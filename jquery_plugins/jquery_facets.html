@@ -52,49 +52,15 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 
 </p>
 
+<a id="defaults"><h4>searchCont</h4></a>
 <code>
-{
-	<br />
-       'searchCont'         : '#searchCont', //A selector for where the filtered search results will go. i.e., a div.
-	<br />
-       'ajaxURL'            : $(location).attr('href'), //URL to make ajax requests to for filtered results. Defaults to current URL.
-	<br />
-       'URLParams'          : new Array(), //extra params for the url, such as the original search query or something. takes array in jQuery's serializeArray() format
-	<br />
-                                           //i.e. 
-	<br />
-                                           //[
-	<br />
-                                           //   {
-	<br />
-                                           //     "name":"search",
-	<br />
-                                           //     "value":"brown jackets"
-	<br />
-                                           //     }
-	<br />
-                                           // ]
-	<br />
-       'ajaxMethod'         : 'GET', // POST or GET
-	<br />
-       'bindType'           : 'change',
-	<br />
-       'bindTypes'          : new Array(),
-	<br />
-       'excludeBindTypes'   : new Array(),
-	<br />
-       'preAJAX'            : function () { return true }, //pre-call ajax function, used for validation etc. returns true or false
-	<br />
-       'postAJAX'           : function (data) { $(plugin.data("settings").searchCont).html(data) }, //post-call ajax function
-	<br />
-       'preHash'            : function () {}, 
-	<br />
-       'postHash'           : function () {},
-	<br /> 
-       'hashOptions'        : [], //takes a array of hashes of key value pairs. Must be in name value format
-	<br />
-       'hash'               : true, //whether or not to put facet values in url after hashtag #
-	<br />
-}
-<br />
+       'searchCont' : '#searchCont'
 </code>
+<p> 
+	This is a selector for the container that will hold the filtered search results after the ajax request.
+</p>
+
+<a id="unclear"><h3>Unclear</h3></a>
+<p>
+	If anything is unclear in the documentation or you feel something could be explained better, please let me know! I'm far from the best writer in the world and I'm always open to suggestions :)
+</p>
