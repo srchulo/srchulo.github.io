@@ -25,6 +25,7 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<li><a href="#bindTypes">bindTypes</a></li>
 		<li><a href="#excludeBindTypes">exlcudeBindTypes</a></li>
 		<li><a href="#preAJAX">preAJAX</a></li>
+		<li><a href="#postAJAX">postAJAX</a></li>
 	</ul>
 	<li><a href="#manualAjaxCall">Manual Ajax Call</a></li>
 	<li><a href="#unclear">Unclear</a></li>
@@ -189,7 +190,7 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        'preAJAX' : function () { return true }
 </code>
 <p> 
-	<a href="#preAJAX">preAJAX</a> takes in a function reference and will be called prior to making the ajax request for the filtered data. It must return either true or false (true jQuery Facets will make the ajax request, false it will not). This function is mostly useful if you want to validate the users input for any facets before sending the data server-side. For example, lets say this was a facet in your facets form:
+	<a href="#preAJAX">preAJAX</a> takes in a function reference and will be called prior to making the ajax request for the filtered data. It must return either true or false (true and jQuery Facets will make the ajax request, false it will not). This function is mostly useful if you want to validate the users input for any facets before sending the data server-side. For example, lets say this was a facet in your facets form:
 
 </p>
 <p>
@@ -200,6 +201,26 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p>
 	Where you allowed the user to filter search results by zip code. By having a <a href="#preAJAX">preAJAX</a> function defined you could appropriately validate the user's input and then return true if the input is okay, and return false otherwise allowing the user to fix their input.
 </p>
+
+
+
+
+<a id="postAJAX"><h4>postAJAX</h4></a>
+<code>
+       'postAJAX' : function (data) { $(plugin.data("settings").searchCont).html(data) }
+</code>
+<p> 
+	<a href="#postAJAX">postAJAX</a> takes in a function reference and will be called after making the ajax request for the filtered data. The default is to fill whatever element you put for <a href="#searchCont">searchCont</a> with the data returned by the ajax request. However, by being able to specify your own postAJAX method you could return the data in whatever format you like (i.e. JSON, XML, etc.) and then you can parse it however you want and display it however you want.
+</p>
+
+<a id="preHash"><h4>preHash</h4></a>
+<code>
+       'preHash' : function () { }
+</code>
+<p> 
+	<a href="#preHash">preHash</a> takes in a function reference and will be called before making the <a href="#hashURL">hashURL</a> method is called.
+</p>
+
 
 
 
