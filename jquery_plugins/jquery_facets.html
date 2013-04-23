@@ -32,7 +32,11 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 		<li><a href="#hash">hash</a></li>
 	</ul>
 	<li><a href="#methods">Methods</a></li>
+	<ul>
+		<li><a href="#hashURL">hashURL</a></li>
+	</ul>
 	<li><a href="#manualAjaxCall">Manual Ajax Call</a></li>
+	<li><a href="#suggestions">Suggestions</a></li>
 	<li><a href="#unclear">Unclear</a></li>
 </ul>
 
@@ -57,7 +61,7 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 </p>
 
 <code>
-	var facet = $("form#facets").facets();
+	var facetsPlugin = $("form#facets").facets();
 </code>
 
 <p>
@@ -270,10 +274,44 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 
 <a id="methods"><h3>Methods</h3></a>
 <p>
-	LOL METHOD STUFF. hashURL, change?
+	Listed below are the methods that you may have a reason to call manually. Any methods that you need to call yourself can be called like so:
+
+	<p>
+		<code>
+			$("form#facets").facets('methodName',optionalArgs);
+		</code>
+	</p>
+
+	Or if you have a handle on the plugin:
+
+	<p>
+		<code>
+			facetsPlugin.facets('methodName',optionalArgs);
+		</code>
+	</p>
+
 </p>
 
 
+<a id="hashURL"><h4>hashURL</h4></a>
+<code>
+       'hash' : true
+</code>
+<p> 
+	<a href="#hashURL">hashURL</a> is only called when the <a href="#hash">hash</a> option is set to true. It is called after making the ajax request in the <a href="#ajaxReq">ajaxReq</a> method. It takes all key value pairs in your facets form and puts them after the hashtag in the URL. This is beneficial for a number of reasons. First, if your user reloads the page or bookmarks it, then jQuery Facets will on page load (using <a href="#hashInit">hashInit</a>) check to see if there are any values after the hashtag in the URL, and if there are it will make an ajax request with those key value pairs to get the appropriate filtered data. It will also fill in all facets with the appropriate values (or check checkboxes, etc.) so that the user's page is in the same state it was before. Also, this can be very useful for users sending links to one another. Also, the <a href="#hashURL">hashURL</a> returns the resulting hash that follows after the hashtag.
+</p>
+
+
+<a id="hashURL"><h4>hashURL</h4></a>
+<code>
+       'hash' : true
+</code>
+<p> 
+	<a href="#hashURL">hashURL</a> is only called when the <a href="#hash">hash</a> option is set to true. It is called after making the ajax request in the <a href="#ajaxReq">ajaxReq</a> method. It takes all key value pairs in your facets form and puts them after the hashtag in the URL. This is beneficial for a number of reasons. First, if your user reloads the page or bookmarks it, then jQuery Facets will on page load (using <a href="#hashInit">hashInit</a>) check to see if there are any values after the hashtag in the URL, and if there are it will make an ajax request with those key value pairs to get the appropriate filtered data. It will also fill in all facets with the appropriate values (or check checkboxes, etc.) so that the user's page is in the same state it was before. Also, this can be very useful for users sending links to one another. 
+</p>
+
+
+ajaxReq returns hashURL which returns the hashtag!
 
 
 
@@ -282,6 +320,15 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 <p>
 	Blah Blah Blah.
 </p>
+
+
+
+
+<a id="suggestions"><h3>Suggestions</h3></a>
+<p>
+	I definitely haven't thought of everything, and if there's a feature you think would be good or something that's lacking, <a href="/contact.html">shoot me an email</a> and I'll see what I can do about it :)
+</p>
+
 
 
 <a id="unclear"><h3>Unclear</h3></a>
