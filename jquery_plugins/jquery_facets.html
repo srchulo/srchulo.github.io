@@ -51,29 +51,50 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 	Below are all of the options that can be set with jQuery Facets and all of their default values:
 
 </p>
-<p>
+
 <code>
 {
+	<br />
        'searchCont'         : '#searchCont', //A selector for where the filtered search results will go. i.e., a div.
+	<br />
        'ajaxURL'            : $(location).attr('href'), //URL to make ajax requests to for filtered results. Defaults to current URL.
+	<br />
        'URLParams'          : new Array(), //extra params for the url, such as the original search query or something. takes array in jQuery's serializeArray() format
+	<br />
                                            //i.e. 
+	<br />
                                            //[
+	<br />
                                            //   {
+	<br />
                                            //     "name":"search",
+	<br />
                                            //     "value":"brown jackets"
+	<br />
                                            //     }
+	<br />
                                            // ]
+	<br />
        'ajaxMethod'         : 'GET', // POST or GET
+	<br />
        'bindType'           : 'change',
+	<br />
        'bindTypes'          : new Array(),
+	<br />
        'excludeBindTypes'   : new Array(),
+	<br />
        'preAJAX'            : function () { return true }, //pre-call ajax function, used for validation etc. returns true or false
+	<br />
        'postAJAX'           : function (data) { $(plugin.data("settings").searchCont).html(data) }, //post-call ajax function
+	<br />
        'preHash'            : function () {}, 
-       'postHash'           : function () {}, 
+	<br />
+       'postHash'           : function () {},
+	<br /> 
        'hashOptions'        : [], //takes a array of hashes of key value pairs. Must be in name value format
+	<br />
        'hash'               : true, //whether or not to put facet values in url after hashtag #
+	<br />
 }
+<br />
 </code>
-</p>
