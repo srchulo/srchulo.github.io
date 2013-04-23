@@ -23,6 +23,7 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<li><a href="#ajaxMethod">ajaxMethod</a></li>
 		<li><a href="#bindType">bindType</a></li>
 		<li><a href="#bindTypes">bindTypes</a></li>
+		<li><a href="#excludeBindTypes">exlcudeBindTypes</a></li>
 	</ul>
 	<li><a href="#manualAjaxCall">Manual Ajax Call</a></li>
 	<li><a href="#unclear">Unclear</a></li>
@@ -115,7 +116,7 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        'bindType' : 'change'
 </code>
 <p> 
-	This is the way to bind to facet elements (i.e. checkboxes). The default is <a href="http://w3schools.com/jsref/event_onchange.asp">onchange</a>. So whenever a element changes (or whichever bind type you select), this is when the ajax request will be made to filter the search results. To select a bindType for individual elements see <a href="#bindTypes">bindTypes</a>.
+	This is the way to bind to facet elements (i.e. checkboxes). The default is <a href="http://w3schools.com/jsref/event_onchange.asp">onchange</a>. So whenever a element changes (or whichever bind type you select), this is when the ajax request will be made to filter the search results. To select a bindType for individual elements see <a href="#bindTypes">bindTypes</a>. A bindType can be any eventType that jQuery's <a href="http://api.jquery.com/bind/">bind</a> function takes. In hindsight, perhaps I should've just named bindType eventType, but I already have this code in production so I have to stick with the naming scheme now :)
 </p>
 
 
@@ -138,9 +139,19 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
 <p>
-	<a href="#bindTypes">bindTypes</a> takes in an array of hashes with the keys <em>selector</em> and <em>bindType</em>, where selector specifies the jQuery selector for the elements you want to have that bindType. 
+	<a href="#bindTypes">bindTypes</a> takes in an array of hashes with the keys <em>selector</em> and <em>bindType</em>, where <em>selector</em> specifies the jQuery selector for the elements you want to have the corresponding <em>bindType</em>. 
 </p>
 
+
+
+
+<a id="excludeBindTypes"><h4>excludeBindTypes</h4></a>
+<code>
+       'excludeBindTypes' : new Array()
+</code>
+<p> 
+	<a href="#excludeBindTypes">excludeBindTypes</a> can be used to specify any elements that you would not like to make ajax calls by being bound to an event (i.e. blur, change).
+</p>
 
 
 
