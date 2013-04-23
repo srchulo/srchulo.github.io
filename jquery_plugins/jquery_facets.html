@@ -179,6 +179,35 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	Where '*' would match all elements. However, this is not recommended.
 </p>
 
+
+
+
+
+<a id="preAJAX"><h4>preAJAX</h4></a>
+<code>
+       'preAJAX' : function () { return true }
+</code>
+<p> 
+	<a href="#preAJAX">preAJAX</a> takes in a function reference and will be called prior to making the ajax request for the filtered data. It must return either true or false (true jQuery Facets will make the ajax request, false it will not). This function is mostly useful if you want to validate the users input for any facets before sending the data server-side. For example, lets say this was a facet in your facets form:
+
+</p>
+<p>
+	<code>
+		&lt;input type="text" name="zip" id="zip" value="" &frasl;&gt;
+	</code>
+</p>
+<p>
+	Where you allowed the user to filter search results by zip code. By having a <a href="#preAJAX">preAJAX</a> function defined you could appropriately validate the user's input and then return true if the input is okay, and return false otherwise allowing the user to fix their input.
+</p>
+
+
+
+
+
+
+
+
+
 <a id="manualAjaxCall"><h3>Manual Ajax Call</h3></a>
 
 <p>
