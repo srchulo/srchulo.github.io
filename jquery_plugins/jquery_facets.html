@@ -15,6 +15,10 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 <ul>
 	<li><a href="#overview">Overview</a></li>
 	<li><a href="#defaults">Defaults</a></li>
+	<ul>
+		<li><a href="#searchCont">Defaults</a></li>
+	</ul>
+	<li><a href="#unclear">Unclear</a></li>
 </ul>
 
 <a id="overview"><h3>Overview</h3></a>
@@ -38,21 +42,27 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 </p>
 
 <code>
-	$("form#facets").facets();
+	var facet = $("form#facets").facets();
 </code>
 
 <p>
-	However, this assumes some defaults.
+	However, this assumes some defaults which are listed below.
 </p>
 
 <a id="defaults"><h3>Defaults</h3></a>
 
 <p>
-	Below are all of the options that can be set with jQuery Facets and all of their default values:
-
+	Below are all of the options that can be set with jQuery Facets and all of their default values. All defaults can be changed:
 </p>
 
-<a id="defaults"><h4>searchCont</h4></a>
+<code>
+	$("form#facets").facets({
+		'name':'value',
+		'name2':'value2'
+	});
+</code>
+
+<a id="searchCont"><h4>searchCont</h4></a>
 <code>
        'searchCont' : '#searchCont'
 </code>
