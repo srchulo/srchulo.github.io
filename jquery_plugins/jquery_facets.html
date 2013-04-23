@@ -3,14 +3,14 @@ layout: default
 title: jQuery Facets
 repository_url: https://github.com/srchulo/jQuery-Facets/
 issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
-tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ---
-
 <h1>jQuery Facets</h1>
 <hr />
 
 <h2>Purpose</h2>
-<p>Every time I've needed faceted search capabilities, I've had to rewrite the JavaScript to do it. This plugin hopes to do away with that. I tried looking for an existing plugin that did what jQuery Facets does, but surprisingly I couldn't find any that offered the functionality that I wanted. Hopefully others will find this plugin useful too.</p>
+<p>
+	Every time I've needed faceted search capabilities, I've had to rewrite the JavaScript to do it. This plugin hopes to do away with that. I tried looking for an existing plugin that did what jQuery Facets does, but surprisingly I couldn't find any that offered the functionality that I wanted. Hopefully others will find this plugin useful too.
+</p>
 
 <h2>Documentation</h2>
 <ul>
@@ -28,6 +28,8 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<li><a href="#postAJAX">postAJAX</a></li>
 		<li><a href="#preHash">preHash</a></li>
 		<li><a href="#postHash">postHash</a></li>
+		<li><a href="#hashOptions">hashOptions</a></li>
+		<li><a href="#hash">hash</a></li>
 	</ul>
 	<li><a href="#methods">Methods</a></li>
 	<li><a href="#manualAjaxCall">Manual Ajax Call</a></li>
@@ -101,7 +103,7 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        'URLParams' : new Array()
 </code>
 <p> 
-	Extra params for the ajax url, such as the original search query. Takes array in jQuery's <a href="http://api.jquery.com/serializeArray/">serializeArray()</a> format.
+	Extra params for the ajax url, such as the original search query. Takes an array in jQuery's <a href="http://api.jquery.com/serializeArray/">serializeArray()</a> format.
 </p>
 
 
@@ -232,8 +234,33 @@ tab: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        'postHash' : function () { }
 </code>
 <p> 
-	<a href="#postHash">postHash</a> takes in a function reference and will be called after the <a href="#hashURL">hashURL</a> method is called. To be honest I'm not really sure what I would use this for, but maybe someone else can figure out something for it :)
+	<a href="#postHash">postHash</a> takes in a function reference and will be called after the <a href="#hashURL">hashURL</a> method is called. To be honest I'm not really sure what I would use this for, but maybe someone else can figure out a use for it :)
 </p>
+
+
+
+
+<a id="hashOptions"><h4>hashOptions</h4></a>
+<code>
+       'hashOptions' : new Array()
+</code>
+<p> 
+	<a href="#hashOptions">hashOptions</a> can be used to specify extra key value pairs that will be put after the hashtag when the <a href="#hashURL">hashURL</a> method is called. Takes an array in jQuery's <a href="http://api.jquery.com/serializeArray/">serializeArray()</a> format.
+</p>
+
+
+
+
+
+<a id="hash"><h4>hash</h4></a>
+<code>
+       'hash' : true
+</code>
+<p> 
+	<a href="#hash">hash</a> takes in a true or false value to determine whether the <a href="#hashURL">hashURL</a> method should be called. If set to false, your <a href="#preHash">preHash</a> and <a href="#postHash">postHash</a> methods will not be called.
+</p>
+
+
 
 
 
