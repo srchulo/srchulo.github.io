@@ -35,7 +35,6 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 	<ul>
 		<li><a href="#hashURL">hashURL</a></li>
 	</ul>
-	<li><a href="#manualAjaxCall">Manual Ajax Call</a></li>
 	<li><a href="#suggestions">Suggestions</a></li>
 	<li><a href="#unclear">Unclear</a></li>
 </ul>
@@ -294,34 +293,15 @@ issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
 
 
 <a id="hashURL"><h4>hashURL</h4></a>
-<code>
-       'hash' : true
-</code>
 <p> 
-	<a href="#hashURL">hashURL</a> is only called when the <a href="#hash">hash</a> option is set to true. It is called after making the ajax request in the <a href="#ajaxReq">ajaxReq</a> method. It takes all key value pairs in your facets form and puts them after the hashtag in the URL. This is beneficial for a number of reasons. First, if your user reloads the page or bookmarks it, then jQuery Facets will on page load (using <a href="#hashInit">hashInit</a>) check to see if there are any values after the hashtag in the URL, and if there are it will make an ajax request with those key value pairs to get the appropriate filtered data. It will also fill in all facets with the appropriate values (or check checkboxes, etc.) so that the user's page is in the same state it was before. Also, this can be very useful for users sending links to one another. Also, the <a href="#hashURL">hashURL</a> returns the resulting hash that follows after the hashtag.
+	<a href="#hashURL">hashURL</a> is only called when the <a href="#hash">hash</a> option is set to true. It is called after making the ajax request in the <a href="#ajaxReq">ajaxReq</a> method. It takes all key value pairs in your facets form and puts them after the hashtag in the URL. This is beneficial for a number of reasons. First, if your user reloads the page or bookmarks it, then jQuery Facets will on page load (using <a href="#hashInit">hashInit</a>) check to see if there are any values after the hashtag in the URL, and if there are it will make an ajax request with those key value pairs to get the appropriate filtered data. It will also fill in all facets with the appropriate values (or check checkboxes, etc.) so that the user's page is in the same state it was before. Also, this can be very useful for users sending links to one another. <a href="#hashURL">hashURL</a> returns the resulting hash that follows after the hashtag.
 </p>
 
 
-<a id="hashURL"><h4>hashURL</h4></a>
-<code>
-       'hash' : true
-</code>
+<a id="ajaxReq"><h4>ajaxReq</h4></a>
 <p> 
-	<a href="#hashURL">hashURL</a> is only called when the <a href="#hash">hash</a> option is set to true. It is called after making the ajax request in the <a href="#ajaxReq">ajaxReq</a> method. It takes all key value pairs in your facets form and puts them after the hashtag in the URL. This is beneficial for a number of reasons. First, if your user reloads the page or bookmarks it, then jQuery Facets will on page load (using <a href="#hashInit">hashInit</a>) check to see if there are any values after the hashtag in the URL, and if there are it will make an ajax request with those key value pairs to get the appropriate filtered data. It will also fill in all facets with the appropriate values (or check checkboxes, etc.) so that the user's page is in the same state it was before. Also, this can be very useful for users sending links to one another. 
+	<a href="#ajaxReq">ajaxReq</a> is called by default when any element triggers its <a href="#bindType">bindType</a>. <a href="#ajaxReq">ajaxReq</a> makes an ajax request to <a href="#ajaxURL">ajaxURL</a> and then leaves it up to <a href="#postAJAX">postAJAX</a> to handled the returned data. A situation in which you might want to call this explicitly would be if you wanted to have an element in your facets form that did not call <a href="#ajaxReq">ajaxReq</a> via a <a href="#bindType">bindType</a> but instead by having the user click a submit button or something like this. <a href="#ajaxReq">ajaxReq</a> returns a method call to <a href="#hashURL">hashURL</a> if <a href="#hash">hash</a> is true.
 </p>
-
-
-ajaxReq returns hashURL which returns the hashtag!
-
-
-
-<a id="manualAjaxCall"><h3>Manual Ajax Call</h3></a>
-
-<p>
-	Blah Blah Blah.
-</p>
-
-
 
 
 <a id="suggestions"><h3>Suggestions</h3></a>
