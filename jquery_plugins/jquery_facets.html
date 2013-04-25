@@ -43,6 +43,10 @@ zip_url: https://github.com/srchulo/jQuery-Facets/archive/master.zip
 		<li><a href="#ajaxReq">ajaxReq</a></li>
 	</ul>
 	<li><a href="#getters_setters">Getters/Setters</a></li>
+	<ul>
+		<li><a href="#getters">Getters</a></li>
+		<li><a href="#setters">Setters</a></li>
+	</ul>
 	<li><a href="#suggestions">Suggestions</a></li>
 	<li><a href="#unclear">Unclear</a></li>
 </ul>
@@ -316,7 +320,7 @@ zip_url: https://github.com/srchulo/jQuery-Facets/archive/master.zip
 <p>
 	Most <a href="#options">options</a> should just be set when creating the jQuery Facets plugin object. However, if you do find a need to get or set a value, it can be done like so:
 </p>
-<h4>Getters</h4>
+<a id="getters"><h4>Getters</h4></a>
 <p>
 	<code>
 		var optionValue = $("form#facets").data("settings").optionName;
@@ -335,7 +339,7 @@ zip_url: https://github.com/srchulo/jQuery-Facets/archive/master.zip
 
 
 
-<h4>Setters</h4>
+<a id="setters"><h4>Setters</h4></a>
 <p>
 	<code>
 		$("form#facets").data("settings",{'optionName':'optionValue'});
