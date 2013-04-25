@@ -327,9 +327,31 @@ zip_url: https://github.com/srchulo/jQuery-Facets/archive/master.zip
 </p>
 <p>
 	<code>
-		facetsPlugin.data("settings").optionName;
+		var optionValue = facetsPlugin.data("settings").optionName;
 	</code>
 </p>
+
+
+
+
+
+<h4>Setters</h4>
+<p>
+	<code>
+		$("form#facets").data("settings",{'optionName':'optionValue'});
+	</code>
+</p>
+<p>
+	Or if you have a handle on the plugin:
+</p>
+<p>
+	<code>
+		facetsPlugin.data("settings",{'optionName':'optionValue'});
+	</code>
+</p>
+
+
+
 
 
 <a id="suggestions"><h3>Suggestions</h3></a>
