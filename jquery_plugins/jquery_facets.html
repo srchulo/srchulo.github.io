@@ -38,6 +38,7 @@ comments: 1
 		<li><a href="#postHash">postHash</a></li>
 		<li><a href="#hashOptions">hashOptions</a></li>
 		<li><a href="#hash">hash</a></li>
+		<li><a href="#shouldSubmit">shouldSubmit</a></li>
 	</ul>
 	<li><a href="#methods">Methods</a></li>
 	<ul>
@@ -299,6 +300,23 @@ comments: 1
 <p> 
 	<a href="#hash">hash</a> takes in a true or false value to determine whether the <a href="#hashURL">hashURL</a> method should be called. If set to false, your <a href="#preHash">preHash</a> and <a href="#postHash">postHash</a> methods will not be called.
 </p>
+
+
+
+
+
+
+
+
+
+<a id="shouldSubmit"><h4>shouldSubmit</h4></a>
+<code>
+       'shouldSubmit' : false
+</code>
+<p> 
+	<a href="#shouldSubmit">shouldSubmit</a> takes in a true or false value to determine whether the facets form should be able to be submitted or not. I'm not really sure why you would want the facets form to be able to be submitted, so the default is false. This way if someone pressed enter on a input of type text, the form won't submit, etc.
+</p>
+
 
 
 
