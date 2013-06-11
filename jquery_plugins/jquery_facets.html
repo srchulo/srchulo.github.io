@@ -366,7 +366,7 @@ comments: 1
 <a id="getters"><h4>Getters</h4></a>
 <p>
 	<code>
-		var optionValue = $("form#facets").data("settings").optionName;
+		var optionValue = $("form#facets").facets('get','optionName');
 	</code>
 </p>
 <p>
@@ -374,7 +374,7 @@ comments: 1
 </p>
 <p>
 	<code>
-		var optionValue = facetsPlugin.data("settings").optionName;
+		var optionValue = facetsPlugin.facets('get','optionName');
 	</code>
 </p>
 
@@ -385,7 +385,7 @@ comments: 1
 <a id="setters"><h4>Setters</h4></a>
 <p>
 	<code>
-		$("form#facets").data("settings",{'optionName':'optionValue'});
+		$("form#facets").facets("set",'optionName','optionValue');
 	</code>
 </p>
 <p>
@@ -393,7 +393,7 @@ comments: 1
 </p>
 <p>
 	<code>
-		facetsPlugin.data("settings",{'optionName':'optionValue'});
+		facetsPlugin.facets("set",'optionName','optionValue');
 	</code>
 </p>
 
