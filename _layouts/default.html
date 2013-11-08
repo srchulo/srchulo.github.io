@@ -73,6 +73,9 @@
             {% if page.tar_url %}
               <li><a href="{{ page.tar_url }}">Download <strong>TAR Ball</strong></a></li>
             {% endif %}
+            {% if page.cpan_url %}
+              <li><a href="{{ page.cpan_url }}">Download <strong>CPAN</strong></a></li>
+            {% endif %}
             {% if page.issue_url %}
               <li><a href="{{ page.issue_url }}">Report<strong>An Issue</strong></a></li>
             {% endif %}
@@ -81,7 +84,7 @@
             {% endif %}
           </ul>
         {% endif %}
-	<br />
+
 	<h3>me on the web</h3>
 	<p><a href="https://github.com/srchulo">GitHub</a></p>
 	<p><a href="http://stackoverflow.com/users/834140/srchulo">stackoverflow</a></p>
@@ -89,7 +92,7 @@
 	<p><a href="https://metacpan.org/author/SRCHULO">CPAN</a></p>
 	<p><a href="http://www.nethop.com/">Net Hop</a></p>
 	<p><a href="/contact.html">Contact Me</a></p>
-        <p><a href=“/resume.pdf”>Resume</a></p>
+        <p><a href="/resume.pdf">Resume</a></p>
 	
 
 	<!-- link to resume here! -->
