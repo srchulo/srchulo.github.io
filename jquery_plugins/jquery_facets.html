@@ -16,9 +16,23 @@ comments: 1
 
 <h2>Demo</h2>
 <p>
-	A VERY rough demo can be found <a href="http://demo.srchulo.com/jquery/jquery_facets/old/index.php">here</a>. I am currently
-	working on building a better demo to put up! But the current one should at least give you a very basic working implementation
-	to look at.
+	A demo can be found <a href="http://demo.srchulo.com/jquery/jquery_facets/">here</a>. A few things to notice
+	about this demo:
+	
+	<ul>
+		<li>The JavaScript code can be found <a href="https://github.com/srchulo/jQuery-Facets/blob/master/demo/js/demo.js">here</a>.</li>
+		<li>The server side PHP code can be found <a href="https://github.com/srchulo/jQuery-Facets/blob/master/demo/index.php">here</a>.</li>
+		<li>
+			When you select or modify a facet, a hashed url appears in the address bar after the current url after a '#'.
+			This is so that people can share links with facets selected and the people who they send them to will
+			also have the same facets selected. If you reload the page after some facets have been selected,
+			jQuery Facets will select all the same facets and then load the results for the faceted search.
+		</li>
+		<li>
+			If you enter nothing into the search bar, it will just search among all results.
+			This is useful for testing faceting because then you have more options to facet with!
+		</li>
+	</ul>	
 </p>
 
 <h2>Documentation</h2>
