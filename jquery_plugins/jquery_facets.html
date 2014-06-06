@@ -16,8 +16,27 @@ comments: 1
 
 <h2>Demo</h2>
 <p>
-	Unfortunately the server I had the code up on is now down, and I haven't had time to put up the code yet. I will
-	try to do this when I get some spare time!
+	A demo can be found <a href="http://demo.srchulo.com/jquery/jquery_facets/">here</a>. A few things to notice
+	about this demo:
+	
+	<ul>
+		<li>The JavaScript code can be found <a href="https://github.com/srchulo/jQuery-Facets/blob/master/demo/js/demo.js">here</a>.</li>
+		<li>The server side PHP code can be found <a href="https://github.com/srchulo/jQuery-Facets/blob/master/demo/index.php">here</a>.</li>
+		<li>
+			When you select or modify a facet, a hashed url appears in the address bar after the current url after a '#'.
+			This is so that people can share links with facets selected and the people who they send them to will
+			also have the same facets selected. If you reload the page after some facets have been selected,
+			jQuery Facets will select all the same facets and then load the results for the faceted search.
+		</li>
+		<li>
+			If you enter nothing into the search bar, it will just search among all results.
+			This is useful for testing faceting because then you have more options to facet with!
+		</li>
+		<li>
+			There is validation on the price and year facets. So if you want to see an example
+			of how to do validation with <a href="#preAJAX">preAJAX</a>, you can look at this.
+		</li>
+	</ul>	
 </p>
 
 <h2>Documentation</h2>
@@ -356,7 +375,7 @@ comments: 1
 
 <a id="ajaxReq"><h4>ajaxReq</h4></a>
 <p> 
-	<a href="#ajaxReq">ajaxReq</a> is called by default when any element triggers its <a href="#bindType">bindType</a>. <a href="#ajaxReq">ajaxReq</a> makes an ajax request to <a href="#ajaxURL">ajaxURL</a> and then leaves it up to <a href="#postAJAX">postAJAX</a> to handled the returned data. A situation in which you might want to call this explicitly would be if you wanted to have an element in your facets form that did not call <a href="#ajaxReq">ajaxReq</a> via a <a href="#bindType">bindType</a>, but instead by having the user click a submit button or something like this. <a href="#ajaxReq">ajaxReq</a> returns a method call to <a href="#hashURL">hashURL</a> if <a href="#hash">hash</a> is true.
+	<a href="#ajaxReq">ajaxReq</a> is called by default when any element triggers its <a href="#bindType">bindType</a>. <a href="#ajaxReq">ajaxReq</a> makes an ajax request to <a href="#ajaxURL">ajaxURL</a> and then leaves it up to <a href="#postAJAX">postAJAX</a> to handle the returned data. A situation in which you might want to call this explicitly would be if you wanted to have an element in your facets form that did not call <a href="#ajaxReq">ajaxReq</a> via a <a href="#bindType">bindType</a>, but instead by having the user click a submit button or something like this. <a href="#ajaxReq">ajaxReq</a> returns a method call to <a href="#hashURL">hashURL</a> if <a href="#hash">hash</a> is true.
 </p>
 
 
