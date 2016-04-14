@@ -1,0 +1,434 @@
+---
+layout: default
+title: jQuery Facets | Faceted Search | Navigated Search
+repository_url: https://github.com/srchulo/jQuery-Facets/
+zip_url: https://github.com/srchulo/jQuery-Facets/archive/master.zip
+issue_url: https://github.com/srchulo/jQuery-Facets/issues/new
+comments: 1
+---
+<h1>jQuery Facets</h1>
+<hr />
+
+<h2>Purpose</h2>
+<p>
+	Every time I've needed faceted search capabilities, I've had to rewrite the JavaScript to do it. This plugin hopes to do away with that. I tried looking for an existing plugin that did what jQuery Facets does, but surprisingly I couldn't find any that offered the functionality that I wanted. Hopefully others will find this plugin useful too.
+</p>
+
+<h2>Demo</h2>
+<p>
+	A demo can be found <a href="http://demo.srchulo.com/jquery/jquery_facets/">here</a>. A few things to notice
+	about this demo:
+	
+	<ul>
+		<li>The JavaScript code can be found <a href="https://github.com/srchulo/jQuery-Facets/blob/master/demo/js/demo.js">here</a>.</li>
+		<li>The server side PHP code can be found <a href="https://github.com/srchulo/jQuery-Facets/blob/master/demo/index.php">here</a>.</li>
+		<li>
+			When you select or modify a facet, a hashed url appears in the address bar after the current url after a '#'.
+			This is so that people can share links with facets selected and the people who they send them to will
+			also have the same facets selected. If you reload the page after some facets have been selected,
+			jQuery Facets will select all the same facets and then load the results for the faceted search.
+		</li>
+		<li>
+			If you enter nothing into the search bar, it will just search among all results.
+			This is useful for testing faceting because then you have more options to facet with!
+		</li>
+		<li>
+			There is validation on the price and year facets. So if you want to see an example
+			of how to do validation with <a href="#preAJAX">preAJAX</a>, you can look at this.
+		</li>
+	</ul>	
+</p>
+
+<h2>Documentation</h2>
+<ul>
+	<li><a href="#overview">Overview</a></li>
+	<li><a href="#options">Options</a></li>
+	<ul>
+		<li><a href="#searchCont">searchCont</a></li>
+		<li><a href="#ajaxURL">ajaxURL</a></li>
+		<li><a href="#URLParams">URLParams</a></li>
+		<li><a href="#ajaxMethod">ajaxMethod</a></li>
+		<li><a href="#bindType">bindType</a></li>
+		<li><a href="#bindTypes">bindTypes</a></li>
+		<li><a href="#excludeBindTypes">exlcudeBindTypes</a></li>
+		<li><a href="#generateData">generateData</a></li>
+		<li><a href="#preAJAX">preAJAX</a></li>
+		<li><a href="#postAJAX">postAJAX</a></li>
+		<li><a href="#preHash">preHash</a></li>
+		<li><a href="#postHash">postHash</a></li>
+		<li><a href="#hashOptions">hashOptions</a></li>
+		<li><a href="#hash">hash</a></li>
+		<li><a href="#shouldSubmit">shouldSubmit</a></li>
+	</ul>
+	<li><a href="#methods">Methods</a></li>
+	<ul>
+		<li><a href="#hashURL">hashURL</a></li>
+		<li><a href="#ajaxReq">ajaxReq</a></li>
+	</ul>
+	<li><a href="#getters_setters">Getters/Setters</a></li>
+	<ul>
+		<li><a href="#getters">Getters</a></li>
+		<li><a href="#setters">Setters</a></li>
+	</ul>
+	<li><a href="#suggestions">Suggestions</a></li>
+	<li><a href="#unclear">Unclear</a></li>
+</ul>
+
+<a id="overview"><h3>Overview</h3></a>
+
+<p>
+	Below is the proper way to include the plugin on your page:
+</p>
+
+<code>
+	&lt;script type='text/javascript' src='jquery.deserialize.js'&gt;&lt;&#47;script&gt;
+	<br />
+	&lt;script type='text/javascript' src='jquery.facets.js'&gt;&lt;&#47;script&gt;
+</code>
+
+<p>
+	The <a href="https://github.com/kflorence/jquery-deserialize">jQuery Deserialize</a> plugin is necessary if you plan on using the hashtag features of jQuery Facets.
+</p>
+
+<p>
+	The simplest way to use jQuery Facets is like so:
+</p>
+
+<code>
+	var facetsPlugin = $("form#facets").facets();
+</code>
+
+<p>
+	However, this assumes some defaults which are listed below.
+</p>
+
+<a id="options"><h3>Options</h3></a>
+
+<p>
+	Below are all of the options that can be set with jQuery Facets and all of their default values. All defaults can be changed like so:
+</p>
+
+<p>
+<code>
+	$("form#facets").facets({ <br />
+		<span class="tab"></span>'option1':'value1', <br />
+		<span class="tab"></span>'option2':'value2'<br />
+	});<br />
+</code>
+</p>
+
+<a id="searchCont"><h4>searchCont</h4></a>
+<code>
+       'searchCont' : '#searchCont'
+</code>
+<p> 
+	This is a selector for the container that will hold the filtered search results after the ajax request.
+</p>
+
+<!-- -->
+<a id="ajaxURL"><h4>ajaxURL</h4></a>
+<code>
+       'ajaxURL' : $(location).attr('href')
+</code>
+<p> 
+	URL to make ajax requests to for filtered results. Defaults to current URL of the page.
+</p>
+
+
+
+<a id="URLParams"><h4>URLParams</h4></a>
+<code>
+       'URLParams' : new Array()
+</code>
+<p> 
+	Extra params for the <a href="#ajaxURL">ajaxURL</a>, such as the original search query. Takes an array in jQuery's <a href="http://api.jquery.com/serializeArray/">serializeArray()</a> format.
+</p>
+
+
+
+
+<a id="ajaxMethod"><h4>ajaxMethod</h4></a>
+<code>
+       'ajaxMethod' : 'GET'
+</code>
+<p> 
+	The method of the ajax request. Default is GET.
+</p>
+
+
+<a id="bindType"><h4>bindType</h4></a>
+<code>
+       'bindType' : 'change'
+</code>
+<p> 
+	This is the way to bind to facet elements (i.e. checkboxes). The default is <a href="http://w3schools.com/jsref/event_onchange.asp">onchange</a>. So whenever an element changes (or whichever <a href="#bindType">bindType</a> you select), this is when a call to <a href="#ajaxReq">ajaxReq</a> will be made to filter the search results. To select a <a href="#bindType">bindType</a> for individual elements see <a href="#bindTypes">bindTypes</a>. A bindType can be any eventType that jQuery's <a href="http://api.jquery.com/bind/">bind</a> function takes. In hindsight, perhaps I should've just named bindType eventType, but I already have this code in production so I have to stick with the naming scheme now :)
+</p>
+
+
+<a id="bindTypes"><h4>bindTypes</h4></a>
+<code>
+       'bindTypes' : new Array()
+</code>
+<p> 
+	With <a href="#bindTypes">bindTypes</a> you can specify specific <a href="#bindTypes">bindTypes</a> for elements matching jQuery selectors. This can be useful if you want your default <a href="#bindType">bindType</a> to be change, but say that you want the <a href="#bindType">bindType</a> for an input of type text to be blur. You can specify that like so:
+
+</p>
+
+<p>
+	<code>
+		'bindTypes' : [{ <br />
+			<span class="tab"></span>'selector' : 'input[type="text"]', <br />
+			<span class="tab"></span>'bindType' : 'blur' <br />
+		}], <br />
+	</code>
+</p>
+
+<p>
+	<a href="#bindTypes">bindTypes</a> takes in an array of hashes with the keys <em>selector</em> and <em>bindType</em>, where <em>selector</em> specifies the jQuery selector for the elements you want to have the corresponding <em>bindType</em>. 
+</p>
+
+
+
+
+<a id="excludeBindTypes"><h4>excludeBindTypes</h4></a>
+<code>
+       'excludeBindTypes' : new Array()
+</code>
+<p> 
+	<a href="#excludeBindTypes">excludeBindTypes</a> can be used to specify any elements that you would not like to make ajax calls by being bound to an event (i.e. blur, change). To specify which elements should not be bound to any <a href="#bindType">bindType</a>, you simply pass in their jQuery selectors in an array. This can be useful if you have an element for which you would like to <a href="#ajaxReq">manually trigger the ajax call</a>. For instance, to exclude all inputs of type text from being bound to a <a href="#bindType">bindType</a>, you simply do the following:
+</p>
+
+
+<p>
+	<code>
+		'excludeBindTypes' : [<br />
+			<span class="tab"></span>'input[type="text"]'<br />
+		], <br />
+	</code>
+</p>
+
+
+<p>
+	Or if you would like to <a href="#ajaxReq">manually trigger all ajax calls</a>, you could do so like this:
+</p>
+
+<p>
+	<code>
+		'excludeBindTypes' : [<br />
+			<span class="tab"></span>'*'<br />
+		], <br />
+	</code>
+</p>
+
+<p>
+	Where '<code>*</code>' would match all elements. However, this is not recommended.
+</p>
+
+
+
+
+
+
+
+<a id="generateData"><h4>generateData</h4></a>
+<code>
+       'generateData' : function () { <br />
+	<br />
+	  <span class="tab"></span>var settings = this.data("settings");<br />
+          <span class="tab"></span>var dataArr = remove_empty(this.serializeArray()); <br />
+              <br />
+          <span class="tab"></span>//push on any user added params<br />
+          <span class="tab"></span>for(var k = 0; k < settings.URLParams.length; k++) { <br />
+          <span class="tab"></span><span class="tab"></span>  dataArr.push(settings.URLParams[k]);<br />
+         <span class="tab"></span> }   <br />
+
+         <span class="tab"></span> return dataArr;<br />
+	}<br />
+</code>
+<p> 
+	<a href="#generateData">generateData</a> takes in a function reference and must return the data to be sent server-side by <a href="#ajaxReq">ajaxReq</a> during the ajax request. Acceptable input is anything that is acceptable for the data setting of jQuery's <a href="http://api.jquery.com/jQuery.ajax/">jQuery.ajax</a> method. If you feel the need to generate the data to be sent server-side yourself, this will allow you to do it. The <a href="#generateData">generateData</a> function will be passed in the jQuery Facets plugin object as <code>this</code>. However, any user added params set in <a href="#URLParams">URLParams</a> will not be added with a user defined <a href="#generateData">generateData</a> function, since the data setting can take in so many formats. Thus, if there are any values you want added, you need to add them yourself in <a href="#generateData">generateData</a>. The default is to return the form serialized using jQuery's <a href="http://api.jquery.com/serializeArray/">serializeArray()</a> function and to remove any elements where the value is empty, while also adding on any user defined params in <a href="#URLParams">URLParams</a>.
+
+
+
+
+<a id="preAJAX"><h4>preAJAX</h4></a>
+<code>
+       'preAJAX' : function () { return true }
+</code>
+<p> 
+	<a href="#preAJAX">preAJAX</a> takes in a function reference and will be called prior to making the ajax request for the filtered data. It must return either true or false (true and jQuery Facets will make the ajax request, false it will not). This function is mostly useful if you want to validate the users input for any facets before sending the data server-side. For example, lets say this was a facet in your facets form:
+
+</p>
+<p>
+	<code>
+		&lt;input type="text" name="zip" id="zip" value="" &frasl;&gt;
+	</code>
+</p>
+<p>
+	Where you allowed the user to filter search results by zip code. By having a <a href="#preAJAX">preAJAX</a> function defined you could appropriately validate the user's input and then return true if the input is okay, and return false otherwise allowing the user to fix their input.
+</p>
+
+
+
+
+<a id="postAJAX"><h4>postAJAX</h4></a>
+<code>
+       'postAJAX' : function (data) { $(plugin.data("settings").searchCont).html(data) }
+</code>
+<p> 
+	<a href="#postAJAX">postAJAX</a> takes in a function reference and will be called after making the ajax request for the filtered data. The default is to fill whatever element you put for <a href="#searchCont">searchCont</a> with the data returned by the ajax request. However, by being able to specify your own postAJAX method you could return the data in whatever format you like (i.e. JSON, XML, etc.) and then you can parse it however you want and display it however you want.
+</p>
+
+<a id="preHash"><h4>preHash</h4></a>
+<code>
+       'preHash' : function () { }
+</code>
+<p> 
+	<a href="#preHash">preHash</a> takes in a function reference and will be called before the <a href="#hashURL">hashURL</a> method is called. This is mainly useful for modifying the <a href="#hashOptions">hashOptions</a> before <a href="#hashURL">hashURL</a> method is called.
+</p>
+
+
+
+
+<a id="postHash"><h4>postHash</h4></a>
+<code>
+       'postHash' : function () { }
+</code>
+<p> 
+	<a href="#postHash">postHash</a> takes in a function reference and will be called after the <a href="#hashURL">hashURL</a> method is called. To be honest I'm not really sure what I would use this for, but maybe someone else can figure out a use for it :)
+</p>
+
+
+
+
+<a id="hashOptions"><h4>hashOptions</h4></a>
+<code>
+       'hashOptions' : new Array()
+</code>
+<p> 
+	<a href="#hashOptions">hashOptions</a> can be used to specify extra key value pairs that will be put after the hashtag when the <a href="#hashURL">hashURL</a> method is called. Takes an array in jQuery's <a href="http://api.jquery.com/serializeArray/">serializeArray()</a> format.
+</p>
+
+
+
+
+
+<a id="hash"><h4>hash</h4></a>
+<code>
+       'hash' : true
+</code>
+<p> 
+	<a href="#hash">hash</a> takes in a true or false value to determine whether the <a href="#hashURL">hashURL</a> method should be called. If set to false, your <a href="#preHash">preHash</a> and <a href="#postHash">postHash</a> methods will not be called.
+</p>
+
+
+
+
+
+
+
+
+
+<a id="shouldSubmit"><h4>shouldSubmit</h4></a>
+<code>
+       'shouldSubmit' : false
+</code>
+<p> 
+	<a href="#shouldSubmit">shouldSubmit</a> takes in a true or false value to determine whether the facets form should be able to be submitted or not. I'm not really sure why you would want the facets form to be able to be submitted, so the default is false. This way if someone pressed enter on a input of type text, the form won't submit, etc.
+</p>
+
+
+
+
+
+
+
+
+
+
+<a id="methods"><h3>Methods</h3></a>
+<p>
+	Listed below are the methods that you may have a reason to call manually. Any methods that you need to call yourself can be called like so:
+
+	<p>
+		<code>
+			$("form#facets").facets('methodName',optionalArgs);
+		</code>
+	</p>
+
+	Or if you have a handle on the plugin:
+
+	<p>
+		<code>
+			facetsPlugin.facets('methodName',optionalArgs);
+		</code>
+	</p>
+
+</p>
+
+
+<a id="hashURL"><h4>hashURL</h4></a>
+<p> 
+	<a href="#hashURL">hashURL</a> is only called when the <a href="#hash">hash</a> option is set to true. It is called after making the ajax request in the <a href="#ajaxReq">ajaxReq</a> method. It takes all key value pairs in your facets form and puts them after the hashtag in the URL. This is beneficial for a number of reasons. First, if your user reloads the page or bookmarks it, then jQuery Facets will on page load (using <a href="#hashInit">hashInit</a>) check to see if there are any values after the hashtag in the URL, and if there are it will make an ajax request with those key value pairs to get the appropriate filtered data. It will also fill in all facets with the appropriate values (or check checkboxes, etc.) so that the user's page is in the same state it was before. Also, this can be very useful for users sending links to one another. <a href="#hashURL">hashURL</a> returns the resulting hash that follows after the hashtag.
+</p>
+
+
+<a id="ajaxReq"><h4>ajaxReq</h4></a>
+<p> 
+	<a href="#ajaxReq">ajaxReq</a> is called by default when any element triggers its <a href="#bindType">bindType</a>. <a href="#ajaxReq">ajaxReq</a> makes an ajax request to <a href="#ajaxURL">ajaxURL</a> and then leaves it up to <a href="#postAJAX">postAJAX</a> to handle the returned data. A situation in which you might want to call this explicitly would be if you wanted to have an element in your facets form that did not call <a href="#ajaxReq">ajaxReq</a> via a <a href="#bindType">bindType</a>, but instead by having the user click a submit button or something like this. <a href="#ajaxReq">ajaxReq</a> returns a method call to <a href="#hashURL">hashURL</a> if <a href="#hash">hash</a> is true.
+</p>
+
+
+<a id="getters_setters"><h3>Getters/Setters</h3></a>
+<p>
+	Most <a href="#options">options</a> should just be set when creating the jQuery Facets plugin object. However, if you do find a need to get or set a value, it can be done like so:
+</p>
+<a id="getters"><h4>Getters</h4></a>
+<p>
+	<code>
+		var optionValue = $("form#facets").facets('get','optionName');
+	</code>
+</p>
+<p>
+	Or if you have a handle on the plugin:
+</p>
+<p>
+	<code>
+		var optionValue = facetsPlugin.facets('get','optionName');
+	</code>
+</p>
+
+
+
+
+
+<a id="setters"><h4>Setters</h4></a>
+<p>
+	<code>
+		$("form#facets").facets("set",'optionName','optionValue');
+	</code>
+</p>
+<p>
+	Or if you have a handle on the plugin:
+</p>
+<p>
+	<code>
+		facetsPlugin.facets("set",'optionName','optionValue');
+	</code>
+</p>
+
+
+
+
+
+<a id="suggestions"><h3>Suggestions</h3></a>
+<p>
+	I definitely haven't thought of everything, and if there's a feature you think would be good or something that's lacking, <a href="/contact.html">shoot me an email</a> and I'll see what I can do about it :)
+</p>
+
+
+
+<a id="unclear"><h3>Unclear</h3></a>
+<p>
+	If anything is unclear in the documentation or you feel something could be explained better, please let me know! I'm far from the best writer in the world and I'm always open to suggestions :)
+</p>
