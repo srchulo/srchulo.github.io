@@ -12,14 +12,14 @@ title: el mundo Minecraft del srchulo
 <hr />
 -->
 
-<h2>[% miners.count %] miner[% IF miners.count != 1 %]s[% END %] exploring...</h2>
+<h2>[% players.count %] miner[% IF players.count != 1 %]s[% END %] exploring...</h2>
 <ul>
-  [% FOR miner IN miners %]
+  [% FOR player IN players %]
     <li>
         <table>
             <tr>
                 <td>
-                    <h3>[% miner %]</h3>
+                    <h3>[% player %]</h3>
                 </td>
                 <td>
                     <img src="avatars/facial/[% miner %].png" />
