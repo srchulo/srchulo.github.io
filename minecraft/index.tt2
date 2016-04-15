@@ -25,7 +25,7 @@ title: el mundo Minecraft del srchulo
                     <h3>[% player %]</h3>
                 </td>
                 <td>
-                    <img src="avatars/facial/[% player %].png" />
+                    <img src="avatars/skin/[% player %].png" />
                 </td>
             </tr>
         </table>
