@@ -12,7 +12,7 @@ title: el mundo Minecraft del srchulo
 <hr />
 -->
 
-<h2>[% size.count %] miner[% IF size.count != 1 %]s[% END %] exploring...</h2>
+<h2>[% players.size %] miner[% IF players.size != 1 %]s[% END %] exploring...</h2>
 <ul>
   [% FOR player IN players %]
     <li>
@@ -22,14 +22,14 @@ title: el mundo Minecraft del srchulo
                     <h3>[% player %]</h3>
                 </td>
                 <td>
-                    <img src="avatars/facial/[% miner %].png" />
+                    <img src="avatars/facial/[% player %].png" />
                 </td>
             </tr>
         </table>
     </li>
   [% END %]
 
-  [% IF size.count == 0 %]
+  [% IF players.size == 0 %]
     <script type="text/javascript">
         var num_images = 6;
         var image = Math.floor((Math.random() * num_images) + 1) + ".jpg";
