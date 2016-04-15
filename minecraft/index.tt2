@@ -28,5 +28,14 @@ title: el mundo Minecraft del srchulo
         </table>
     </li>
   [% END %]
+
+  [% IF players.count == 0 %]
+    <script type="text/javascript">
+        var num_images = 6;
+        var image = Math.floor((Math.random() * num_images) + 1) + ".jpg";
+        document.getElementById("sad_steve").src = "sad/" + image;
+    </script>
+    <img id="sad_steve" height="600px" />
+  [% END %]
 </ul>
 <hr />
