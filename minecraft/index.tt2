@@ -30,7 +30,8 @@ title: el mundo Minecraft del srchulo
   [% END %]
 
   [% IF players.size == 0 %]
-      <li>
+    <hr />
+    <li>
         <img id="sad_steve" height="600px" />
     </li>
     <script type="text/javascript">
