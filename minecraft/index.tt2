@@ -6,14 +6,27 @@ title: el mundo Minecraft del srchulo
 <h3>[% ip %]:[% port %]</h3>
 <hr />
 
+<!--
 <h2>Minecraft Day</h2>
 <p>Day [% day %]</p>
 <hr />
+-->
 
 <h2>[% miners.count %] miner[% IF miners.count != 1 %]s[% END %] exploring...</h2>
 <ul>
   [% FOR miner IN miners %]
-    <li>[% miner %]</li>
+    <li>
+        <table>
+            <tr>
+                <td>
+                    <h3>[% miner %]</h3>
+                </td>
+                <td>
+                    <img src="avatars/facial/[% miner %].png" />
+                </td>
+            </tr>
+        </table>
+    </li>
   [% END %]
 </ul>
 <hr />
