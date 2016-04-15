@@ -2,8 +2,8 @@
 layout: default
 title: el mundo Minecraft del srchulo
 ---
-<h1>minecraft.srchulo.com:31862</h1>
-<h3>[% ip %]:31862</h3>
+<h1>minecraft.srchulo.com:[% port %]</h1>
+<h3>[% ip %]:[% port %]</h3>
 <hr />
 
 <h2>Minecraft Day</h2>
