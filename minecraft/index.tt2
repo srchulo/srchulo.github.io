@@ -13,6 +13,9 @@ title: el mundo Minecraft del srchulo
 -->
 
 <h2>[% players.size %] miner[% IF players.size != 1 %]s[% END %] exploring...</h2>
+[% IF players.size == 0 %]
+  <hr />
+[% END %]
 <ul>
   [% FOR player IN players %]
     <li>
@@ -30,7 +33,6 @@ title: el mundo Minecraft del srchulo
   [% END %]
 
   [% IF players.size == 0 %]
-    <hr />
     <li>
         <img id="sad_steve" height="600px" />
     </li>
