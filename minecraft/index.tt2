@@ -35,7 +35,9 @@ title: el mundo Minecraft del srchulo
         var image = Math.floor((Math.random() * num_images) + 1) + ".jpg";
         document.getElementById("sad_steve").src = "sad/" + image;
     </script>
-    <img id="sad_steve" height="600px" />
+    <li>
+        <img id="sad_steve" height="600px" />
+    </li>
   [% END %]
 </ul>
 <hr />
