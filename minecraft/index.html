@@ -12,37 +12,22 @@ title: el mundo Minecraft del srchulo
 <hr />
 -->
 
-<h2>2 miners exploring...</h2>
+<h2>0 miners exploring...</h2>
+
+  <hr />
 
 <ul>
   
-    <li>
-        <table>
-            <tr>
-                <td>
-                    <h3>Jackmaster</h3>
-                </td>
-                <td>
-                    <img src="avatars/skin/Jackmaster.png" />
-                </td>
-            </tr>
-        </table>
-    </li>
-  
-    <li>
-        <table>
-            <tr>
-                <td>
-                    <h3>WolfPooper</h3>
-                </td>
-                <td>
-                    <img src="avatars/skin/WolfPooper.png" />
-                </td>
-            </tr>
-        </table>
-    </li>
-  
 
+  
+    <li>
+        <img id="sad_steve" height="600px" />
+    </li>
+    <script type="text/javascript">
+        var num_images = 6;
+        var image = Math.floor((Math.random() * num_images) + 1) + ".jpg";
+        document.getElementById("sad_steve").src = "sad/" + image;
+    </script>
   
 </ul>
 <hr />
