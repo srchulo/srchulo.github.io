@@ -45,4 +45,4 @@ title: el mundo Minecraft del srchulo
 </ul>
 <hr />
 
-<p>Last updated: [% last_updated %]</p>
+<p>Last updated: [% last_updated %] America/Los_Angeles</p>
