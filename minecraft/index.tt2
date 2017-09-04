@@ -44,3 +44,5 @@ title: el mundo Minecraft del srchulo
   [% END %]
 </ul>
 <hr />
+
+<p>Last updated: [% last_updated %]</p>
